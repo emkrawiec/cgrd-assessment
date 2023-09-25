@@ -110,7 +110,7 @@ class PureDiCompositionRoot implements CompositionRoot
                 [
                     'id' => 1,
                     'username' => 'admin',
-                    'password' => 'admin'
+                    'password' => 'test'
                 ]
             ]
         );
