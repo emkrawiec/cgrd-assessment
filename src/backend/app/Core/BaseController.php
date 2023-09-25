@@ -10,8 +10,7 @@ readonly class BaseController implements Controller
 {
     public function __construct(
         private ViewRenderer $viewRenderer
-    )
-    {
+    ) {
     }
 
     /**

@@ -50,7 +50,7 @@ readonly class PdoNewsRepository implements NewsRepository
             return array();
         }
 
-        return array_map(function(array $row) {
+        return array_map(function (array $row) {
             /** @var array{id: int, owner_id: int, title: string, content: string} $typed_row */
             $typed_row = $row;
             return News::fromDb($typed_row);
