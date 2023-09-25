@@ -25,7 +25,7 @@ readonly class NewsService
         $news = News::createNew($ownerId, $request->getTitle(), $request->getContent());
         $id = $this->newsRepository->create($news);
 
-        $this->logger->info('News created with id {id}.', ['id' => $id]);
+        $this->logger->info('News created with.', ['id' => $id]);
         return $id;
     }
 
@@ -40,7 +40,7 @@ readonly class NewsService
         $news->hydrateFromPrimitives($request->getTitle(), $request->getContent());
         $this->newsRepository->edit($news);
 
-        $this->logger->info('News edited with id {id}.', ['id' => $id]);
+        $this->logger->info('News edited with.', ['id' => $id]);
 
         return NewsEditResult::OK;
     }
@@ -52,7 +52,7 @@ readonly class NewsService
         }
 
         $this->newsRepository->delete($id);
-        $this->logger->info('News deleted with id {id}.', ['id' => $id]);
+        $this->logger->info('News deleted.', ['id' => $id]);
 
         return NewsDeleteResult::OK;
     }
