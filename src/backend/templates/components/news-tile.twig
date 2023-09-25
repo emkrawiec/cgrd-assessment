@@ -1,0 +1,16 @@
+{% set form_id = 'news-delete-form-' ~ content.id  %}
+
+<article class="c-news js-news" data-news-id="{{ content.id }}">
+    <h3 class="c-news__heading u-truncate-ellipsis js-news-title" data-test-id="news-tile-heading">{{ content.title }}</h3>
+    <div class="c-news__content u-truncate-ellipsis js-news-content" data-test-id="news-tile-content">
+        {{ content.content }}
+    </div>
+
+    <button aria-label="Edit news with title {{ content.title }}" class="u-button-base c-news__button c-news__button--edit js-news-edit-button" type="button"></button>
+    <button aria-label="Delete news with title {{ content.title }}" class="u-button-base c-news__button c-news__button--delete js-news-delete-button" form="{{ form_id }}" type="submit"></button>
+
+    <form method="POST" id="{{ form_id }}">
+        <input type="hidden" name="id" value="{{ content.id }}">
+        <input type="hidden" name="_method" value="DELETE">
+    </form>
+</article>

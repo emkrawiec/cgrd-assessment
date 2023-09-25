@@ -1,0 +1,75 @@
+{% extends "/layout/layout.twig" %}
+
+{% block content %}
+    {% if news_list is not empty %}
+        <h2 class="p-news__heading">All news</h2>
+
+        <div class="p-news-list">
+            {% for news in news_list %}
+                {% include "/components/news-tile.twig" with {
+                    content: news
+                } %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form action="/news" method="POST" class="p-news-form js-news-form">
+        <fieldset>
+            <legend class="p-news-form__legend">
+                <h2 class="p-news-form__heading js-news-form-heading">Create news</h2>
+                <button hidden class="u-button-base p-news-form__abort-edit-button js-news-form-abort-edit-mode" aria-label="Cancel news form edit" type="button"></button>
+            </legend>
+
+            <input type="hidden" name="_method" class="js-news-form-method-input">
+            <input type="hidden" name="id" class="js-news-form-id-input">
+
+            <div class="p-news-form__form-field">
+                {% include "/components/input.twig" with {
+                    attrs: {
+                        name: "title",
+                        "aria-label": "Title",
+                        class: "js-news-form-title-input",
+                        placeholder: "Title",
+                        required: true,
+                    }
+                } %}
+            </div>
+
+            <div class="p-news-form__form-field">
+                {% include "/components/textarea.twig" with {
+                    attrs: {
+                        name: "content",
+                        "aria-label": "Content",
+                        placeholder: "Content",
+                        class: "js-news-form-content-input",
+                        required: true,
+                        rows: 8
+                    }
+                } %}
+            </div>
+
+            {% include "/components/button.twig" with {
+                content: "Create",
+                props: {
+                    size_variant: 'flex',
+                },
+                attrs: {
+                    "data-test-id": "news-form-submit-button",
+                    class: 'js-news-form-submit',
+                    type: "submit",
+                }
+            } %}
+        </fieldset>
+    </form>
+
+    {% include "/components/button.twig" with {
+        content: "Logout",
+        attrs: {
+            href: "/logout",
+        },
+        props: {
+            size_variant: 'flex',
+            as_link: true,
+        },
+    } %}
+{% endblock %}

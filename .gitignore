@@ -1,0 +1,11 @@
+.idea
+node_modules/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+.php-cs-fixer.cache
+.phpunit.cache
+
+.DS_Store
+vendor
+.env

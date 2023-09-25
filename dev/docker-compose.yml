@@ -1,0 +1,58 @@
+name: cgrd
+services:
+  cgrd-composer:
+    container_name: cgrd-dev-composer
+    image: composer:2.6.3
+    volumes:
+      - ../:/app
+    networks:
+      - cgrd
+  cgrd-php-fpm:
+    container_name: cgrd-php-fpm
+    build:
+      context: .
+      dockerfile: ./php/Dockerfile
+    volumes:
+      - ../:/var/html
+    networks:
+      - cgrd
+  cgrd-nginx:
+    container_name: cgrd-nginx
+    image: nginx:stable
+    depends_on:
+      - cgrd-php-fpm
+    networks:
+      - cgrd
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ../:/var/html
+    ports:
+      - 8080:80
+  cgrd-db:
+    container_name: cgrd-db
+    image: mariadb
+    restart: always
+    volumes:
+      - cgrd-db:/var/lib/mysql
+    networks:
+      cgrd:
+    environment:
+      MARIADB_DATABASE: cgrd
+      MARIADB_USER: cgrd
+      MARIADB_PASSWORD: cgrd
+      MARIADB_ROOT_PASSWORD: cgrd
+  cgrd-db-panel:
+    container_name: cgrd-db-panel
+    image: adminer
+    restart: always
+    depends_on:
+      - cgrd-db
+    networks:
+      cgrd:
+    ports:
+      - 8081:8080
+networks:
+  cgrd:
+    driver: bridge
+volumes:
+  cgrd-db:

@@ -1,0 +1,12 @@
+{% set VARIANTS = {
+    SUCCESS: 'success',
+    ERROR: 'error',
+} %}
+{% set _attrs = {
+    class: ["c-notification", "c-notification--" ~ props.variant|lower]|join(" "),
+    role: "alert"
+} %}
+
+<aside {{ attributes(_attrs, attrs) }}>
+    {{ content }}
+</aside>

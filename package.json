@@ -1,0 +1,23 @@
+{
+  "name": "cgrd-assessment",
+  "version": "1.0.0",
+  "description": "cgrd recrutation assessment.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test:e2e": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.6.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include "/meta/head.twig" %}
+</head>
+<body class="js-page-{{ page_name }}">
+    <div class="c-layout">
+        <div class="o-container">
+            <header>
+                <img src="/images/logo.svg" width="99" height="50" class="c-layout__logo" alt="CGRD logo"/>
+            </header>
+
+            {% if notification is not empty %}
+                <div class="c-layout__notification">
+                    {% include "/components/notification.twig" with {
+                        content: notification.message,
+                        props: {
+                            variant: notification.variant,
+                            size_variant: 'flex'
+                        }
+                    } %}
+                </div>
+            {% endif %}
+
+        {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% set tag = props.as_link ? "a" : "button" %}
+
+{% set SIZE_VARIANTS = {
+    NORMAL: 'normal',
+    FLEX: 'small',
+} %}
+{% set size_variant = props.size_variant ?: SIZE_VARIANTS.NORMAL %}
+{% set _attrs = {
+    class: ["u-button-base", "c-button", "c-button--" ~ size_variant, "u-focus-outline"]|join(" "),
+} %}
+
+<{{ tag }} {{ attributes(_attrs, attrs) }}>
+    {{ content }}
+</{{ tag }}>
