@@ -24,7 +24,7 @@ Hey, thanks for the opportunity to take this task. I tried to be as "fullstack" 
 Some comments about the task.
 
 ### Environment
-I used Docker for development env. `docker-compose.yml` is prepared for dev env. To view db `adminer` panel is also added to dev env. 
+I used Docker and Docker Compose for whole development environment. To view db `adminer` panel is also added to dev env. 
 
 ### PHP
 Requirements forbid using php frameworks so I thought. "OK, let's build one myself". I prepared some basic framework structure
@@ -47,12 +47,12 @@ vite because it inlines `@import` statements for performance and minifies the ou
 I also leveraged CSS variables and cascade layers as "newer" CSS features. :)
 
 ### TS
-I used typescript because I love it. Would I be able to do it in JS? Sure, but TS is just better and tooling is ready sooo... :D
-I used `vite` as a bundler. Nice choice after webpack, almost everything works out of the box, not complex config. Very nice.
+I used Typescript because I love it. Would I be able to do it in JS? Sure, but TS is just better and tooling is easy sooo... :D
+I used `vite` as a bundler. Nice choice after Webpack, almost everything works out of the box, not complex config.
 
 ### Tests
-Wrote some basic integration tests, just for showcase. I usually test with more db using Testcontainers but no 1st party support for PHP :(
-I used `phpunit` for tests. I also used `playwright` for e2e tests. Backend tests in `tests` and e2e tests in `e2e`.
+Wrote some basic integration tests, just for showcase. I usually test with db using Testcontainers but no 1st party support for PHP :(
+I used `phpunit` for tests with mocked repositories. I also used `playwright` for e2e tests. Backend tests in `tests` and e2e tests in `e2e`.
 
 ### Tools
 I use `php-cs-fixer` and `phpstan` for some basic code quality checks. It was my first take for `phpstan`. Looks nice, I am so
