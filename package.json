@@ -1,7 +1,7 @@
 {
   "name": "cgrd-assessment",
   "version": "1.0.0",
-  "description": "cgrd recrutation assessment.",
+  "description": "cgrd recrutation assessment task",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
